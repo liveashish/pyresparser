@@ -51,7 +51,8 @@ setup(
         'thinc>=7.0.4',
         'tqdm>=4.32.2',
         'urllib3>=1.25.3',
-        'wasabi>=0.2.2'
+        'wasabi>=0.2.2',
+        'geotext>=0.4.0'
     ],
     zip_safe=False,
     entry_points = {
