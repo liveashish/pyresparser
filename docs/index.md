@@ -13,6 +13,7 @@ A simple resume parser used for extracting information from resumes
 - Extract degree
 - Extract designation
 - Extract company names
+- Extract location
 
 # Getting Started
 
