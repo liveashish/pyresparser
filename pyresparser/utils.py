@@ -17,6 +17,8 @@ from pdfminer.pdfpage import PDFPage
 from pdfminer.pdfparser import PDFSyntaxError
 from nltk.stem import WordNetLemmatizer
 from nltk.corpus import stopwords
+from geotext import GeoText
+
 
 
 def extract_text_from_pdf(pdf_path):
@@ -494,3 +496,14 @@ def extract_experience(resume_text):
         if x and 'experience' in x.lower()
     ]
     return x
+
+def extract_location(resume_text):
+    location_stopwords = ['Mobile', 'March', 'University', 'Date', 'Location', 'Green', 'Of']
+    location_text = resume_text[:1000] + resume_text[-1000:]
+    places = GeoText(location_text)
+    try:
+        location_set = list(set(places.cities) - set(location_stopwords))
+        location = location_set[0]
+    except Exception as e:
+        return (str(e))
+    return location
